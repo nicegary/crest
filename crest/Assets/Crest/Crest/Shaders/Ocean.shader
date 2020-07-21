@@ -6,6 +6,8 @@ Shader "Crest/Ocean"
 {
 	Properties
 	{
+		[Toggle] _LayoutPrecisionFix("Enable _LayoutPrecisionFix", Float) = 1
+
 		[Header(Normal Mapping)]
 		// Whether to add normal detail from a texture. Can be used to add visual detail to the water surface
 		[Toggle] _ApplyNormalMapping("Enable", Float) = 1
@@ -216,6 +218,8 @@ Shader "Crest/Ocean"
 			#pragma target 3.0
 			#pragma multi_compile_fog
 			#pragma multi_compile_instancing
+
+			#pragma shader_feature_local _LAYOUTPRECISIONFIX_ON
 
 			#pragma shader_feature_local _APPLYNORMALMAPPING_ON
 			#pragma shader_feature_local _COMPUTEDIRECTIONALLIGHT_ON
